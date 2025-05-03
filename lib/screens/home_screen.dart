@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
 
       appBar: AppBar(
-        title: Text('Primera app', style: TextStyle(color: Colors.white),),
+        title: const Text('Primera app', style: TextStyle(color: Colors.white),),
         centerTitle: true,
         backgroundColor: Colors.indigo,
         elevation: 30,
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   builder: (_) => SecondScreen()
                 ),
               ),
-              child: Text('Ejemplo Andres')
+              child: const Text('Ejemplo Andres')
             )
 
           ],

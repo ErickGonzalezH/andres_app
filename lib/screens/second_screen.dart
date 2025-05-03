@@ -10,7 +10,7 @@ class SecondScreen extends StatelessWidget {
 
       appBar: AppBar(),
 
-      body: Center(
+      body: const Center(
          child: Text('SecondScreen'),
       ),
     );
