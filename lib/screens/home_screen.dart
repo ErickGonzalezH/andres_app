@@ -59,46 +59,54 @@ class _HomeScreenState extends State<HomeScreen> {
     
       body: SizedBox(
         height: size.height,
-        child: Column(
-          children: [
-            CustomCard(
-              elevation: 0,
-              childPadding: 0,
-              borderWidth: 1,
-              width: size.width,
-              height: size.height * .4,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CustomCard(
-                    elevation: 5,
-                    child: Text('Nombre: $nombre'),
-                  ),
-                  CustomCard(
-                    elevation: 5,
-                    child: Text('Apellido: $apellido'),
-                  ),
-                  CustomCard(
-                    elevation: 5,
-                    child: Text('Edad: $edad'),
-                  ),
-                ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              CustomCard(
+                childPadding: 0,
+                elevation: 0,
+                width: size.width,
+                child: Image.asset("assets/images/lago.jpg", fit: BoxFit.cover),
               ),
-            ),
-
-            SizedBox(height: size.shortestSide * .4),
-
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => SecondScreen()
+              CustomCard(
+                elevation: 0,
+                childPadding: 0,
+                borderWidth: 1,
+                width: size.width,
+                height: size.height * .3,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CustomCard(
+                      elevation: 5,
+                      child: Text('Nombre: $nombre'),
+                    ),
+                    CustomCard(
+                      elevation: 5,
+                      child: Text('Apellido: $apellido'),
+                    ),
+                    CustomCard(
+                      elevation: 5,
+                      child: Text('Edad: $edad'),
+                    ),
+                  ],
                 ),
               ),
-              child: const Text('Ejemplo Andres')
-            )
-
-          ],
+          
+              SizedBox(height: size.shortestSide * .1),
+          
+              ElevatedButton(
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => SecondScreen()
+                  ),
+                ),
+                child: const Text('Ejemplo Andres')
+              )
+          
+            ],
+          ),
         ),
       )
     );
