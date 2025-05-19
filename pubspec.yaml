@@ -13,7 +13,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   flutter_custom_cards: ^0.2.1
   font_awesome_flutter: ^10.7.0
-  animated_text_kit: ^4.2.2  
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +25,4 @@ flutter:
 
   assets:
     - assets/images/gym_background.jpg
+    - assets/images/
