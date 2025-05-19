@@ -1,11 +1,7 @@
-import 'dart:developer';
-
-import 'package:andres_app/screens/second_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_custom_cards/flutter_custom_cards.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class HomeScreen extends StatefulWidget {
-   
   const HomeScreen({super.key});
 
   @override
@@ -13,94 +9,110 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-  String nombre = 'Tony';
-  String apellido = 'Stark';
-  String edad = '30';
-
   @override
   Widget build(BuildContext context) {
-      Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          // Fondo con imagen
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/gym_background.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
 
-      appBar: AppBar(
-        title: const Text('Primera app', style: TextStyle(color: Colors.white),),
-        centerTitle: true,
-        backgroundColor: Colors.indigo,
-        elevation: 30,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.info_outline, color: Colors.white),
-            onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text('Alerta'),
-                      content: Text('Se presionó el botón.'),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop(); // Cierra la alerta
-                          },
-                          child: Text('OK'),
+          // Texto animado "Fit\nEvolution" más arriba y cargado a la izquierda
+          Positioned(
+            top: 30,
+            left: 30,
+            child: AnimatedTextKit(
+              repeatForever: true,
+              pause: const Duration(seconds: 2),
+              animatedTexts: [
+                TyperAnimatedText(
+                  'Fit\nEvolution',
+                  textStyle: const TextStyle(
+                    fontSize: 40.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                    letterSpacing: 2,
+                    height: 0.9, // 👈 ajusta separación vertical
+                  ),
+                  speed: const Duration(milliseconds: 100),
+                  textAlign: TextAlign.left,
+                ),
+              ],
+            ),
+          ),
+
+          // Contenido inferior
+          Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  'NO ENTRENES DURO,\nENTRENA INTELIGENTE',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    height: 1.3,
+                  ),
+                ),
+                const SizedBox(height: 40),
+                Row(
+                  children: [
+                    Expanded(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          // Acción para "Únete Ahora"
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFF0D47A1),
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
                         ),
-                      ],
-                    );
-                  },
-                );
-
-              // handle the press
-              log('Se presiono');
-            },
+                        child: const Text(
+                          'Únete Ahora',
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: OutlinedButton(
+                        onPressed: () {
+                          // Acción para "Iniciar Sesión"
+                        },
+                        style: OutlinedButton.styleFrom(
+                          side: const BorderSide(color: Colors.white),
+                          padding: const EdgeInsets.symmetric(vertical: 15),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                        child: const Text(
+                          'Iniciar Sesión',
+                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 60),
+              ],
+            ),
           ),
         ],
       ),
-    
-      body: SizedBox(
-        height: size.height,
-        child: Column(
-          children: [
-            CustomCard(
-              elevation: 0,
-              childPadding: 0,
-              borderWidth: 1,
-              width: size.width,
-              height: size.height * .4,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CustomCard(
-                    elevation: 5,
-                    child: Text('Nombre: $nombre'),
-                  ),
-                  CustomCard(
-                    elevation: 5,
-                    child: Text('Apellido: $apellido'),
-                  ),
-                  CustomCard(
-                    elevation: 5,
-                    child: Text('Edad: $edad'),
-                  ),
-                ],
-              ),
-            ),
-
-            SizedBox(height: size.shortestSide * .4),
-
-            ElevatedButton(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => SecondScreen()
-                ),
-              ),
-              child: const Text('Ejemplo Andres')
-            )
-
-          ],
-        ),
-      )
     );
   }
 }
