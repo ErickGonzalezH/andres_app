@@ -24,5 +24,4 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/gym_background.jpg
     - assets/images/

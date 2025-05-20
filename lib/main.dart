@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:andres_app/screens/home_screen.dart';
+import 'package:andres_app/screens/login_register/initial_screen.dart';
 
 
 void main() => runApp(const MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Curso Andres App',
-      home: HomeScreen(),
+      home: InicialScreen(),
     );
   }
 }
