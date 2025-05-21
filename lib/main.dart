@@ -1,11 +1,14 @@
-import 'package:andres_app/validators/exports_validations.dart';
 import 'package:flutter/material.dart';
-import 'package:andres_app/screens/login_register/initial_screen.dart';
 import 'package:provider/provider.dart';
 
+import 'package:andres_app/validators/exports_validations.dart';
+import 'package:andres_app/screens/login_register/initial_screen.dart';
 
 void main() {
+  
+  //INICIALIZA LOS WIDGETS CORRECTAMENTE AL INICIAR LA APP
   WidgetsFlutterBinding.ensureInitialized();
+
   runApp(
     MultiProvider(
       providers: [

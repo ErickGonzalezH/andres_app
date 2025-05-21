@@ -1,10 +1,12 @@
-import 'package:andres_app/colors/export_colors.dart';
-import 'package:andres_app/screens/export_screen.dart';
-import 'package:andres_app/validators/exports_validations.dart';
-import 'package:andres_app/widgets/export_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
+import 'package:line_icons/line_icons.dart';
+
+import 'package:andres_app/colors/export_colors.dart';
+// import 'package:andres_app/screens/export_screen.dart';
+import 'package:andres_app/widgets/export_widgets.dart';
+import 'package:andres_app/validators/exports_validations.dart';
+import 'package:andres_app/widgets/design/toast/toast_widget.dart';
 
 class LoginScreen extends StatefulWidget {
    
@@ -56,7 +58,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     children: [
                   
                       SizedBox(height: size.height * .03),
-                    
+
+                      //REGRESAR
                       materialSyncButton(
                         onPressed: () => Navigator.pop(context),
                         text: 'Regresar', 
@@ -156,10 +159,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       Align(
                         alignment: Alignment.centerRight,
                         child: materialAsyncButton(
-                          onPressed: () => Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(builder: (context) => HomeScreen()),
-                            (Route<dynamic> route) => false,
-                          ),
+                          // onPressed: () => Navigator.of(context).pushAndRemoveUntil(
+                          //   MaterialPageRoute(builder: (context) => HomeScreen()),
+                          //   (Route<dynamic> route) => false,
+                          // ),
+                          onPressed: () async {
+                            showCustomToast(context: context, message: 'Ingresar');
+                          },
                           text: 'Ingresar', 
                           textColor: Colors.white,
                           minWidth: size.width * .35, 
