@@ -1,3 +1,4 @@
+import 'package:andres_app/screens/export_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
@@ -76,7 +77,13 @@ class _InicialScreenState extends State<InicialScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     materialAsyncButton(
-                      onPressed: () async {},
+                      onPressed: () async {
+                        Navigator.push(context,
+                          MaterialPageRoute(
+                            builder: (context) => RegisterScreen()
+                          ),
+                        );
+                      },
                       text: 'Únete Ahora', 
                       minWidth: size.width * .4, 
                       color: const Color(0xFF0D47A1),
@@ -87,7 +94,13 @@ class _InicialScreenState extends State<InicialScreen> {
                     ),
 
                     materialAsyncButton(
-                      onPressed: () async {},
+                      onPressed: () async {
+                        Navigator.push(context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginScreen()
+                          ),
+                        );
+                      },
                       text: 'Iniciar Sesión', 
                       minWidth: size.width * .4, 
                       color: Colors.transparent,

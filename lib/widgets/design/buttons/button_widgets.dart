@@ -13,11 +13,14 @@ Widget materialSyncButton({
   Color? borderColor,
   double? borderWidth,
   FontWeight? nigga,
+  double? height,
+  double? textsize,
 }) {
   return MaterialButton(
     onPressed: onPressed,
     minWidth: minWidth,
     color: color,
+    height: height,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(borderRadius ?? 10),
       side: BorderSide(color: borderColor ?? color, width: borderWidth ?? 0),
@@ -25,7 +28,8 @@ Widget materialSyncButton({
     child: customText(
       text: text,
       color: textColor,
-      nigga: nigga
+      nigga: nigga,
+      size: textsize
     ),
   );
 }
@@ -73,10 +77,13 @@ Widget materialAsyncButtonWidget({
   Color? borderColor,
   double? borderWidth,
   FontWeight? nigga,
+  double? height,
+  double? textsize,
 }) {
   return MaterialButton(
     onPressed: onPressed,
     minWidth: minWidth,
+    height: height,
     color: color,
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(borderRadius ?? 15),
